@@ -1,5 +1,7 @@
 package tqs;
 
+import java.util.NoSuchElementException;
+
 public class TqsStack {
     private int arr[];
     private int top;
@@ -13,12 +15,16 @@ public class TqsStack {
     }
 
     public void push(int x) {
-        System.out.println("Inserting " + x);
+        if (this.isFull()) {
+            throw new IllegalStateException();
+        }
         arr[++top] = x;
     }
 
     public int pop() {
-        System.out.println("Removing " + peek());
+        if (this.isEmpty()) {
+            throw new NoSuchElementException();
+        }
         return arr[top--];
     }
 
@@ -26,9 +32,8 @@ public class TqsStack {
         if (!isEmpty()) {
             return arr[top];
         } else {
-            System.exit(-1);
+            throw new NoSuchElementException();
         }
-        return -1;
     }
 
     public int size() {

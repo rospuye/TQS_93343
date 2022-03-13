@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.NoSuchElementException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 /**
@@ -20,7 +20,7 @@ public class TqsStackTest
     private TqsStack stack;
 
     @BeforeEach
-    public void initEach(){
+    public void initEach() {
         this.stack = new TqsStack(10);
     }
     /* ------ (a) ------ */
@@ -89,7 +89,7 @@ public class TqsStackTest
     /* ------ (i) ------ */
     @Test
     public void IllegalStateException() {
-        // filling up the this.stack
+        // filling up the stack
         for (int i=0; i<10; i++) {
             this.stack.push(i);
         }
