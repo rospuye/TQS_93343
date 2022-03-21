@@ -4,37 +4,45 @@ import connection.TqsBasicHttpClient;
 import geocoding.Address;
 import geocoding.AddressResolver;
 import org.json.simple.parser.ParseException;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AddressResolverIT {
 
+    TqsBasicHttpClient realClient = new TqsBasicHttpClient();
+
+    private AddressResolver addressResolver;
 
     @BeforeEach
-    public void init(){
+    void setUp() {
+        this.addressResolver = new AddressResolver(realClient);
     }
 
     @Test
-    public void whenGoodCoordidates_returnAddress() throws IOException, URISyntaxException, ParseException {
+    void whenResolveAlboiGps_returnCaisAlboiAddress() throws ParseException, IOException, URISyntaxException {
+        Optional<Address> result = addressResolver.findAddressForLocation(40.638963,-8.651836);
+        Address address = result.get();
+        Address staticResponseAddress = new Address("Rua Combatentes da Grande Guerra", "Glória e Vera Cruz", "Centro", "3810-087", null);
 
-        //todo
-
-        // repeat the same tests conditions from AddressResolverTest, without mocks
-
+        assertEquals(address, staticResponseAddress);
     }
 
     @Test
-    public void whenBadCoordidates_thenReturnNoValidAddrress() throws IOException, URISyntaxException, ParseException {
+    public void whenBadCoordidates_thenReturnNoValidAddress() throws IOException, URISyntaxException, ParseException {
+        Optional<Address> result = addressResolver.findAddressForLocation(200,200);
+        assertEquals(result, Optional.empty());
+    }
 
-        //todo
-        // repeat the same tests conditions from AddressResolverTest, without mocks
-        
+    @AfterEach
+    void cleanUp() {
+        this.addressResolver = null;
     }
 
 }
