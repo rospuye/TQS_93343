@@ -12,6 +12,8 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.TestPropertySource;
+
 import tqs.lab3_2carsService.Car;
 import tqs.lab3_2carsService.CarRepository;
 
@@ -21,7 +23,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 
-@AutoConfigureTestDatabase
+// @AutoConfigureTestDatabase
+@TestPropertySource
 public class D_IntegrationTest {
 
     @LocalServerPort
