@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 
 // @AutoConfigureTestDatabase
-@TestPropertySource( locations = "D_IntegrationTest.properties")
+@TestPropertySource( locations = "application-integrationtest.properties")
 public class D_IntegrationTest {
 
     @LocalServerPort
