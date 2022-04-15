@@ -1,0 +1,22 @@
+-------------------------------------------------------------------------------
+Test set: io.github.bonigarcia.CucumberTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 12.157 s <<< FAILURE! - in io.github.bonigarcia.CucumberTest
+Login in practice site.Choose departure and destination cities  Time elapsed: 7.23 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
+	at io.github.bonigarcia.LoginSteps.the_departure_city_should_be(LoginSteps.java:96)
+	at ✽.The departure city should be 'Boston'(classpath:io/github/bonigarcia/login.feature:9)
+
+Login in practice site.Choose flight  Time elapsed: 4.756 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
+	at io.github.bonigarcia.LoginSteps.the_flight_number_should_be(LoginSteps.java:119)
+	at ✽.The flight number should be 234(classpath:io/github/bonigarcia/login.feature:16)
+

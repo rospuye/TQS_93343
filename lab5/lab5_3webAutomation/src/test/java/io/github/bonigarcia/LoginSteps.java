@@ -25,6 +25,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import io.cucumber.java.en.And;
@@ -32,7 +33,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class LoginSteps {
+public class LoginSteps extends CucumberTest {
 
     private WebDriver driver;
 
@@ -61,6 +62,7 @@ public class LoginSteps {
     public void i_navigate_to(String url) {
         driver = WebDriverManager.firefoxdriver().create();
         driver.get(url);
+        PageFactory.initElements(driver, this);
     }
 
     @When("I choose {string} as my departure city")
@@ -84,6 +86,8 @@ public class LoginSteps {
 
     @Then("I should be redirected to {string}")
     public void i_should_be_redirected_to(String url) {
+        driver.get(url);
+        PageFactory.initElements(driver, this);
         assertEquals(url, driver.getCurrentUrl());
     }
 
@@ -99,6 +103,9 @@ public class LoginSteps {
 
     @When("I am at {string}")
     public void i_am_at(String url) {
+        driver = WebDriverManager.firefoxdriver().create();
+        driver.get(url);
+        PageFactory.initElements(driver, this);
         assertEquals(url, driver.getCurrentUrl());
     }
 
