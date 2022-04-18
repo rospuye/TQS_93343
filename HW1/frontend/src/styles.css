@@ -1,0 +1,36 @@
+html {
+  font-family: system-ui, sans-serif;
+  font-size: 1.25rem;
+}
+
+body {
+  margin: 0;
+  padding: 0 1.5rem;
+  overflow: hidden;
+  background-color: #14213D;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+h1 {
+  color: #FFFFFF;
+  font-family: 'Raleway', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 72px;
+  margin-top: 1%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h4 {
+  color: #FFFFFF;
+  font-family: 'Raleway', sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 32px;
+  margin-top: -2%;
+}
