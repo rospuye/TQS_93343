@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import tqs.consume_external_api.cache.Cache;
 import tqs.consume_external_api.exception.CountryNotFoundException;
 import tqs.consume_external_api.models.Country;
+import tqs.consume_external_api.service.CountryClient;
 import tqs.consume_external_api.service.CountryService;
 
 @RestController
@@ -22,7 +23,7 @@ public class CountryController {
     private CountryService service;
 
     CountryController() {
-      this.service = new CountryService();
+      this.service = new CountryService(new CountryClient());
     }
 
     @GetMapping("/countries")

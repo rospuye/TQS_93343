@@ -45,7 +45,7 @@ public class Country {
     @Override
     public String toString() {
         String ret = "Country [all=" + all; // + ", territories=" + territories + "]";
-        if (!territories.isEmpty()) {
+        if (territories!=null && territories.size()!=0) {
             ret += ", territories=" + territories;
         }
         ret += "]";

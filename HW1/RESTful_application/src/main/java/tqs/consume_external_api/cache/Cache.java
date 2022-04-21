@@ -61,7 +61,8 @@ public class Cache {
 
                 // System.out.println(instance);
             }
-        }, 0, 60000); // do it every minute
+        }, 0, 1000); // do it every second (cache keeps countries for 10 seconds)
+        // }, 0, 60000); // do it every minute (cache keeps countries for 10 minutes)
 
     }
 
@@ -77,14 +78,14 @@ public class Cache {
         if (cache != null) {
             this.request_count++;
             for (CacheItem ci : cache) {
-                if (ci.getCountry().equals(item.getCountry())) { // no duplicate countries (replacement)
-                    removeItem(ci);
+                if (ci.getCountry().getAll().getCountry().equals(item.getCountry().getAll().getCountry())) { // no duplicate countries (replacement)
+                    this.removeItem(ci);
                     break;
                 }
             }
             boolean ret = cache.add(item);
             if (ret) {
-                TTLs.add(10); // change TTL here (10 minutes default)
+                TTLs.add(10); // change TTL here
                 put_successes++;
             } else {
                 put_fails++;
