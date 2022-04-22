@@ -2,6 +2,8 @@ package tqs.consume_external_api.models;
 
 import java.util.LinkedHashMap;
 
+import com.google.gson.Gson;
+
 public class Territory {
 
     private String territory;
@@ -46,10 +48,10 @@ public class Territory {
     public String toString() {
         String ret = "Territory [territory=" + territory;
         if (confirmed_dates != null) {
-            ret += ", confirmed_dates=" + confirmed_dates;
+            ret += ", confirmed_dates=" + new Gson().toJson(confirmed_dates, LinkedHashMap.class);
         }
         if (deaths_dates != null) {
-            ret += ", deaths_dates=" + deaths_dates;
+            ret += ", deaths_dates=" + new Gson().toJson(deaths_dates, LinkedHashMap.class);
         }
         ret += "]";
         return ret;
