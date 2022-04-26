@@ -21,9 +21,10 @@ import tqs.consume_external_api.service.CountryService;
 public class CountryController {
 
     private CountryService service;
+    private Cache cache;
 
     CountryController() {
-      this.service = new CountryService(new CountryClient());
+      this.service = new CountryService(Cache.getInstance(), new CountryClient());
     }
 
     @GetMapping("/countries")

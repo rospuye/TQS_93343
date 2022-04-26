@@ -11,6 +11,7 @@ import org.mockito.Mockito;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import tqs.consume_external_api.cache.Cache;
 import tqs.consume_external_api.models.All;
 import tqs.consume_external_api.models.Country;
 import tqs.consume_external_api.models.Territory;
@@ -39,10 +40,12 @@ public class B_ServiceLevelTests {
     CountryClient mockClient = mock(CountryClient.class);
 
     private CountryService service;
+    private Cache cache;
 
     @BeforeEach
     public void setUp() {
-        this.service = new CountryService(mockClient);
+        this.cache = Cache.getInstance();
+        this.service = new CountryService(cache, mockClient);
     }
 
     /*
@@ -628,6 +631,7 @@ public class B_ServiceLevelTests {
     @AfterEach
     public void cleanUp() {
         this.service = null;
+        this.cache.erase();
     }
 
 }

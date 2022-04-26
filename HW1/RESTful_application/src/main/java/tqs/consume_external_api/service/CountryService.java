@@ -23,8 +23,8 @@ public class CountryService {
     private static final Logger log = LoggerFactory.getLogger(CountryService.class);
     private CountryClient client;
 
-    public CountryService(CountryClient client) {
-        cache = Cache.getInstance();
+    public CountryService(Cache cache, CountryClient client) {
+        this.cache = cache;
         this.client = client;
     }
 

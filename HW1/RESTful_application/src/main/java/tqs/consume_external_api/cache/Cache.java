@@ -173,4 +173,8 @@ public class Cache {
                 + ", request_count=" + request_count + ", size_requests=" + size_requests + "]";
     }
 
+    public void erase() {
+        Cache.instance = null;
+    }
+
 }

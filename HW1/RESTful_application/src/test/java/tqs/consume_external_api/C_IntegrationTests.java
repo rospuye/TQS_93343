@@ -162,64 +162,6 @@ public class C_IntegrationTests {
     }
 
     @Test
-    void whenGetCountryStatusByAb_thenStatus200() throws Exception {
-        mvc.perform(get("/countries/ab=FR/status=confirmed").contentType(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-
-                .andExpect(jsonPath("$.all.country", is("France")))
-                .andExpect(jsonPath("$.all.abbreviation", is("FR")))
-                .andExpect(jsonPath("$.all.confirmed_dates", notNullValue()))
-                .andExpect(jsonPath("$.all.deaths_dates", nullValue()))
-
-                .andExpect(jsonPath("$.territories.[0].territory", is("French Guiana")))
-                .andExpect(jsonPath("$.territories.[0].confirmed_dates", notNullValue()))
-                .andExpect(jsonPath("$.territories.[0].deaths_dates", nullValue()))
-
-                .andExpect(jsonPath("$.territories.[1].territory", is("French Polynesia")))
-                .andExpect(jsonPath("$.territories.[1].confirmed_dates", notNullValue()))
-                .andExpect(jsonPath("$.territories.[1].deaths_dates", nullValue()))
-
-                .andExpect(jsonPath("$.territories.[2].territory", is("Guadeloupe")))
-                .andExpect(jsonPath("$.territories.[2].confirmed_dates", notNullValue()))
-                .andExpect(jsonPath("$.territories.[2].deaths_dates", nullValue()))
-
-                .andExpect(jsonPath("$.territories.[3].territory", is("Martinique")))
-                .andExpect(jsonPath("$.territories.[3].confirmed_dates", notNullValue()))
-                .andExpect(jsonPath("$.territories.[3].deaths_dates", nullValue()))
-
-                .andExpect(jsonPath("$.territories.[4].territory", is("Mayotte")))
-                .andExpect(jsonPath("$.territories.[4].confirmed_dates", notNullValue()))
-                .andExpect(jsonPath("$.territories.[4].deaths_dates", nullValue()))
-
-                .andExpect(jsonPath("$.territories.[5].territory", is("New Caledonia")))
-                .andExpect(jsonPath("$.territories.[5].confirmed_dates", notNullValue()))
-                .andExpect(jsonPath("$.territories.[5].deaths_dates", nullValue()))
-
-                .andExpect(jsonPath("$.territories.[6].territory", is("Reunion")))
-                .andExpect(jsonPath("$.territories.[6].confirmed_dates", notNullValue()))
-                .andExpect(jsonPath("$.territories.[6].deaths_dates", nullValue()))
-
-                .andExpect(jsonPath("$.territories.[7].territory", is("Saint Barthelemy")))
-                .andExpect(jsonPath("$.territories.[7].confirmed_dates", notNullValue()))
-                .andExpect(jsonPath("$.territories.[7].deaths_dates", nullValue()))
-
-                .andExpect(jsonPath("$.territories.[8].territory", is("Saint Pierre and Miquelon")))
-                .andExpect(jsonPath("$.territories.[8].confirmed_dates", notNullValue()))
-                .andExpect(jsonPath("$.territories.[8].deaths_dates", nullValue()))
-
-                .andExpect(jsonPath("$.territories.[9].territory", is("St Martin")))
-                .andExpect(jsonPath("$.territories.[9].confirmed_dates", notNullValue()))
-                .andExpect(jsonPath("$.territories.[9].deaths_dates", nullValue()))
-
-                .andExpect(jsonPath("$.territories.[10].territory", is("Wallis and Futuna")))
-                .andExpect(jsonPath("$.territories.[10].confirmed_dates", notNullValue()))
-                .andExpect(jsonPath("$.territories.[10].deaths_dates", nullValue()));
-
-    }
-
-    @Test
     void whenGetCacheStats_thenStatus200() throws Exception {
 
         mvc.perform(get("/cache").contentType(MediaType.APPLICATION_JSON))

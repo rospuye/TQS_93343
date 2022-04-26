@@ -176,7 +176,7 @@ public class A_UnitTests {
 
     @AfterEach
     public void cleanUpCache() {
-        this.cache = null;
+        this.cache.erase();
     }
     
 }
