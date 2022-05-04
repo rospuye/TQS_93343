@@ -61,8 +61,8 @@ public class Cache {
 
                 // System.out.println(instance);
             }
-        }, 0, 1000); // do it every second (cache keeps countries for 10 seconds)
-        // }, 0, 60000); // do it every minute (cache keeps countries for 10 minutes)
+        // }, 0, 1000); // do it every second (cache keeps countries for 10 seconds)
+        }, 0, 60000); // do it every minute (cache keeps countries for 10 minutes)
 
     }
 
